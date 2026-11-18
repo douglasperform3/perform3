@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0e16"><meta name="description" content="Perform3 — meus links, projetos e contatos.">
+<title>Perform3 | Links oficiais</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0e16;--panel:#151a28;--text:#f4f6fb;--muted:#a6aec2;--line:#ffffff18;--accent:#8b7cff;--accent2:#43d9c5}
+[data-theme=light]{color-scheme:light;--bg:#f2f4fb;--panel:#fff;--text:#171b2b;--muted:#697187;--line:#1e28471a;--accent:#6554df;--accent2:#159e91}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:32px 18px;background:radial-gradient(ellipse at 15% 12%,#8b7cff2e,transparent 34%),radial-gradient(ellipse at 90% 85%,#43d9c51f,transparent 32%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;transition:.25s}
+.page{width:min(100%,470px)}.top{display:flex;justify-content:flex-end;margin-bottom:14px}.toggle{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:99px;padding:9px 14px;cursor:pointer;font:inherit;font-size:13px}
+.card{padding:34px 27px 25px;text-align:center;border:1px solid var(--line);border-radius:28px;background:var(--panel);box-shadow:0 24px 70px #0003}
+.logo{width:82px;height:82px;display:grid;place-items:center;margin:0 auto 18px;border-radius:25px;color:white;font-size:29px;font-weight:850;letter-spacing:-2px;background:linear-gradient(140deg,var(--accent),#5142bd 58%,var(--accent2));box-shadow:0 12px 35px #7364e64a}
+h1{margin:0;font-size:36px;letter-spacing:-1.5px}.tag{margin:9px 0 27px;color:var(--muted);font-size:14px;line-height:1.6}.links{display:grid;gap:12px}
+.link{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--line);border-radius:16px;background:#7f87a010;color:var(--text);text-decoration:none;text-align:left;transition:.18s}
+.link:hover{transform:translateY(-2px);border-color:var(--accent);background:#8b7cff1a}.link:focus-visible,.toggle:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+.ico{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;border-radius:13px;background:#8b7cff26;color:var(--accent);font-size:21px}
+.copy{min-width:0;flex:1}.name{display:block;font-size:14px;font-weight:700}.sub{display:block;color:var(--muted);font-size:12px;margin-top:3px}.arrow{color:var(--muted);font-size:20px}
+.label{margin:25px 0 12px;color:var(--muted);font-size:11px;font-weight:750;letter-spacing:1.5px;text-transform:uppercase}.contacts{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.contact{padding:9px 12px;border-radius:99px;color:var(--text);text-decoration:none;border:1px solid var(--line);font-size:12px}.contact:hover{border-color:var(--accent2)}
+footer{color:var(--muted);text-align:center;font-size:11px;margin-top:22px}
+@media(max-width:380px){.card{padding:28px 18px 22px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head>
+<body><main class="page">
+<div class="top"><button class="toggle" id="toggle" type="button">☀ Tema claro</button></div>
+<section class="card" aria-labelledby="title"><div class="logo" aria-hidden="true">P3</div>
+<h1 id="title">Perform3</h1><p class="tag">Meus links, projetos e contatos em um só lugar.</p>
+<nav class="links" aria-label="Links principais">
+<a class="link" href="https://github.com/douglasesquadriasperes-sketch" target="_blank" rel="noopener noreferrer"><span class="ico">⌘</span><span class="copy"><span class="name">GitHub</span><span class="sub">Projetos e repositórios</span></span><span class="arrow">↗</span></a>
+<!-- Troque o link do Instagram pelo endereço do seu perfil. -->
+<a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><span class="ico">◎</span><span class="copy"><span class="name">Instagram</span><span class="sub">Acompanhe as novidades</span></span><span class="arrow">↗</span></a>
+<!-- Troque 55DDDNUMERO pelo seu número com código do país e DDD, somente números. -->
+<a class="link" href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener noreferrer"><span class="ico">◉</span><span class="copy"><span class="name">WhatsApp</span><span class="sub">Entre em contato</span></span><span class="arrow">↗</span></a>
+</nav>
+<p class="label">Contato</p><div class="contacts">
+<!-- Substitua pelo seu e-mail e número reais. -->
+<a class="contact" href="mailto:SEU-EMAIL@EXEMPLO.COM">✉ E-mail</a><a class="contact" href="https://wa.me/55DDDNUMERO">☏ WhatsApp</a>
+</div></section><footer>© <span id="year"></span> Perform3 · Todos os direitos reservados</footer>
+</main><script>
+const root=document.documentElement,button=document.getElementById('toggle');
+function theme(value){root.dataset.theme=value;button.textContent=value==='dark'?'☀ Tema claro':'☾ Tema escuro';try{localStorage.setItem('perform3-theme',value)}catch(e){}}
+let current='dark';try{current=localStorage.getItem('perform3-theme')||'dark'}catch(e){}theme(current);
+button.addEventListener('click',()=>theme(root.dataset.theme==='dark'?'light':'dark'));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script></body></html>
