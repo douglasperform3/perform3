@@ -3,167 +3,249 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0d1117">
-<meta name="description" content="Perform3 — impressão 3D, projetos e contatos oficiais.">
+<meta name="theme-color" content="#0b1015">
+<meta name="description" content="Perform3 — impressão 3D e fabricação digital. Acompanhe nossos projetos e entre em contato.">
 <title>Perform3 | Impressão 3D</title>
 <style>
 :root{
   color-scheme:dark;
-  --bg:#0d1117;--panel:#141b23;--panel-2:#19232d;--text:#f4f6f8;
-  --muted:#9aa7b2;--line:#ffffff18;--accent:#f0a64b;--accent-soft:#f0a64b1b;
-  --shadow:0 28px 90px #0007;--tech-line:#c3d0d966;--tech-glow:#f0a64b;
+  --bg:#0b1015;--surface:#121a21;--surface-2:#18232b;--surface-3:#1d2a33;
+  --text:#f3f5f6;--muted:#a1adb5;--line:#dce6eb1c;--accent:#e9a34b;
+  --accent-soft:#e9a34b15;--shadow:0 30px 80px #0006;--grid:#e8f0f408;
 }
 [data-theme="light"]{
   color-scheme:light;
-  --bg:#eef1f3;--panel:#ffffff;--panel-2:#f5f7f8;--text:#17212a;
-  --muted:#66747f;--line:#1625321c;--accent:#b96d17;--accent-soft:#f0a64b24;
-  --shadow:0 24px 70px #25374618;--tech-line:#60717e4d;--tech-glow:#b96d17;
+  --bg:#f0f3f4;--surface:#fff;--surface-2:#f6f8f9;--surface-3:#edf1f3;
+  --text:#17232b;--muted:#687780;--line:#1b303d1c;--accent:#a86113;
+  --accent-soft:#d98a3020;--shadow:0 24px 70px #24374316;--grid:#263d4b08;
 }
 *{box-sizing:border-box}
 html{min-height:100%;background:var(--bg)}
 body{
-  position:relative;min-height:100vh;margin:0;padding:34px 18px;display:grid;place-items:center;overflow-x:hidden;
-  color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  min-height:100vh;margin:0;padding:28px 24px 22px;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   background:
-    radial-gradient(ellipse at 50% 4%,#f0a64b20,transparent 42%),
-    radial-gradient(ellipse at 92% 78%,#f0a64b0b,transparent 35%),
-    linear-gradient(#ffffff08 1px,transparent 1px),
-    linear-gradient(90deg,#ffffff08 1px,transparent 1px),var(--bg);
-  background-size:auto,auto,40px 40px,40px 40px,auto;
+    radial-gradient(ellipse at 78% 15%,#e9a34b12,transparent 32%),
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px),var(--bg);
+  background-size:auto,48px 48px,48px 48px,auto;
   transition:background-color .25s,color .25s;
 }
-.bg-printer{position:fixed;inset:0;z-index:0;display:grid;place-items:center;overflow:hidden;pointer-events:none;opacity:.24;mask-image:linear-gradient(to right,transparent 0%,#000 12%,#000 88%,transparent 100%)}
-.bg-printer svg{display:block;width:min(1180px,112vw);height:auto;transform:translate(18%,3%);color:var(--tech-line)}
-.bg-printer .hot{stroke:var(--tech-glow)}
-.page{position:relative;z-index:1;width:min(100%,500px)}
-.topbar{display:flex;justify-content:flex-end;margin-bottom:13px}
+a{color:inherit}
+.site{width:min(100%,1080px);margin:0 auto}
+.header{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:0 0 24px;border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-symbol{
+  width:42px;height:42px;display:grid;place-items:center;border:1px solid #e9a34b55;
+  border-radius:12px;background:var(--accent-soft);
+}
+.brand-symbol svg{width:28px;height:28px}
+.brand-name{font-size:17px;font-weight:850;letter-spacing:1.5px}
+.brand-name span{color:var(--accent)}
+.brand-caption{display:block;margin-top:3px;color:var(--muted);font-size:9px;font-weight:750;letter-spacing:1.55px}
+.header-side{display:flex;align-items:center;gap:14px}
+.header-note{color:var(--muted);font-size:10px;font-weight:750;letter-spacing:1.45px;text-transform:uppercase}
 .theme-toggle{
   display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);
-  border-radius:999px;background:var(--panel);color:var(--muted);font:600 12px inherit;
+  border-radius:999px;background:var(--surface);color:var(--muted);font:600 12px inherit;
   cursor:pointer;transition:border-color .2s,color .2s,transform .2s;
 }
 .theme-toggle:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
 .theme-toggle svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.card{
-  position:relative;overflow:hidden;padding:36px 34px 27px;text-align:center;
-  border:1px solid var(--line);border-radius:25px;background:var(--panel);
+.hero{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;
+  min-height:410px;margin:27px 0 30px;padding:34px 42px;
+  border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:linear-gradient(112deg,var(--surface) 0%,var(--surface) 49%,color-mix(in srgb,var(--surface) 76%,var(--accent) 24%) 100%);
   box-shadow:var(--shadow);
 }
-.card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.9}
-.brand-mark{
-  width:82px;height:82px;display:grid;place-items:center;margin:0 auto 19px;
-  border:1px solid #f0a64b45;border-radius:22px;
-  background:linear-gradient(145deg,#f0a64b1c,#f0a64b05 70%);
-  box-shadow:inset 0 1px #ffffff0c,0 12px 35px #0002;
+.hero:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.8}
+.hero-copy{position:relative;z-index:2;max-width:440px}
+.hero-title{margin:0;font-size:clamp(42px,6vw,68px);line-height:.98;font-weight:900;letter-spacing:-2.6px}
+.hero-title span{color:var(--accent)}
+.hero-rule{width:54px;height:3px;margin:23px 0 17px;border-radius:2px;background:var(--accent)}
+.hero-text{max-width:370px;margin:0;color:var(--muted);font-size:16px;line-height:1.75}
+.hero-footnote{display:flex;align-items:center;gap:9px;margin-top:27px;color:var(--text);font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.hero-footnote:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.machine{
+  position:relative;z-index:1;display:grid;place-items:center;min-width:0;min-height:320px;
 }
-.brand-mark svg{width:59px;height:59px;display:block}
-h1{margin:0;color:var(--text);font-size:35px;line-height:1.08;font-weight:850;letter-spacing:2.8px}
-h1 span{color:var(--accent)}
-.tagline{margin:12px 0 25px;color:var(--muted);font-size:14px;line-height:1.65}
-.section-heading{
-  display:flex;align-items:center;gap:12px;margin:0 0 12px;
-  color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;text-align:left;
+.machine:before{
+  content:"";position:absolute;width:75%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,#e9a34b20 0%,#e9a34b08 48%,transparent 72%);
 }
-.section-heading:after{content:"";height:1px;flex:1;background:var(--line)}
-.links{display:grid;gap:10px}
+.machine svg{position:relative;width:min(100%,440px);height:auto;overflow:visible;filter:drop-shadow(0 22px 25px #0005)}
+.machine-label{
+  position:absolute;right:0;bottom:6px;padding:8px 11px;border:1px solid var(--line);
+  border-radius:8px;background:var(--surface);color:var(--muted);font-size:9px;
+  font-weight:800;letter-spacing:1.25px;text-transform:uppercase;
+}
+.section{margin:0 0 26px}
+.section-head{display:flex;align-items:center;gap:14px;margin:0 0 14px}
+.section-title{margin:0;font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase}
+.section-line{height:1px;flex:1;background:var(--line)}
+.social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .link{
-  display:flex;align-items:center;gap:14px;padding:12px 14px;min-height:68px;
-  border:1px solid var(--line);border-radius:14px;background:var(--panel-2);
-  color:var(--text);text-decoration:none;text-align:left;
-  transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;
+  display:flex;align-items:center;gap:12px;min-width:0;min-height:78px;padding:14px;
+  border:1px solid var(--line);border-radius:13px;background:var(--surface);
+  color:var(--text);text-decoration:none;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;
 }
-.link:hover{transform:translateY(-2px);border-color:#f0a64b75;background:var(--accent-soft);box-shadow:0 8px 22px #0002}
+.link:hover{transform:translateY(-3px);border-color:#e9a34b80;background:var(--surface-2);box-shadow:0 12px 28px #0002}
 .link:focus-visible,.contact:focus-visible,.theme-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .ico{
   width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;
-  border:1px solid var(--line);border-radius:12px;background:#ffffff07;color:var(--text);
+  border:1px solid var(--line);border-radius:11px;background:var(--surface-3);color:var(--text);
 }
 .ico svg{width:21px;height:21px;display:block;fill:currentColor}
 .ico.instagram{color:#e879ad}.ico.tiktok{color:var(--text)}.ico.youtube{color:#ff5252}
 .copy{min-width:0;flex:1}
-.name{display:block;font-size:13px;font-weight:750;letter-spacing:.15px}
-.sub{display:block;margin-top:4px;color:var(--muted);font-size:11px;line-height:1.3}
-.arrow{color:var(--muted);font-size:19px;transition:color .2s,transform .2s}
+.name{display:block;font-size:13px;font-weight:800;letter-spacing:.1px}
+.sub{display:block;margin-top:4px;color:var(--muted);font-size:10px;line-height:1.35}
+.arrow{align-self:flex-start;margin-left:auto;color:var(--muted);font-size:17px;transition:color .2s,transform .2s}
 .link:hover .arrow{color:var(--accent);transform:translate(2px,-2px)}
-.contact-area{margin-top:24px}
-.contacts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contact-panel{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:18px 20px;border:1px solid var(--line);border-radius:14px;
+  background:var(--surface);
+}
+.contact-copy h2{margin:0;font-size:14px;font-weight:800}
+.contact-copy p{margin:5px 0 0;color:var(--muted);font-size:11px}
+.contacts{display:flex;gap:10px;flex-wrap:wrap}
 .contact{
-  min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:10px 12px;border:1px solid var(--line);border-radius:12px;
-  background:transparent;color:var(--text);text-decoration:none;font-size:12px;font-weight:700;
+  min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 15px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);
+  color:var(--text);text-decoration:none;font-size:11px;font-weight:800;
   transition:background .2s,border-color .2s,transform .2s;
 }
-.contact:hover{transform:translateY(-1px);border-color:var(--accent);background:var(--accent-soft)}
-.contact svg{width:17px;height:17px;fill:currentColor}
+.contact:hover{transform:translateY(-2px);border-color:var(--accent);background:var(--accent-soft)}
+.contact svg{width:16px;height:16px;fill:currentColor}
 .contact.mail svg{color:var(--accent)}.contact.whatsapp svg{color:#25c96a}
-footer{margin-top:19px;color:var(--muted);text-align:center;font-size:10px;letter-spacing:.35px}
-@media(max-width:420px){
-  body{padding:20px 13px;background-size:auto,28px 28px,28px 28px,auto}
-  .card{padding:30px 19px 23px;border-radius:21px}
-  .brand-mark{width:74px;height:74px}
-  .bg-printer{opacity:.16;place-items:end center}
-  .bg-printer svg{width:155vw;transform:translate(0,0)}
-  h1{font-size:31px}
+.footer{
+  display:flex;justify-content:space-between;gap:15px;padding-top:19px;margin-top:24px;
+  border-top:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:.35px;
+}
+.footer span:last-child{font-weight:750;letter-spacing:1px;text-transform:uppercase}
+@media(max-width:760px){
+  body{padding:18px 14px}
+  .hero{grid-template-columns:1fr;gap:4px;min-height:0;padding:30px 28px 12px}
+  .hero-copy{max-width:100%}
+  .hero-title{font-size:clamp(42px,10vw,60px)}
+  .hero-text{font-size:14px}
+  .machine{min-height:255px;margin-top:-4px}
+  .machine svg{width:min(100%,360px)}
+  .machine-label{right:4px;bottom:2px}
+}
+@media(max-width:560px){
+  .header{padding-bottom:17px}
+  .header-note{display:none}
+  .brand-caption{font-size:8px}
+  .hero{margin-top:18px;padding:27px 21px 10px}
+  .hero-title{letter-spacing:-1.8px}
+  .machine{min-height:220px}
+  .social-grid{grid-template-columns:1fr;gap:9px}
+  .link{min-height:66px;padding:11px 12px}
+  .contact-panel{align-items:flex-start;flex-direction:column;gap:14px;padding:16px}
+  .contacts{width:100%}
+  .contact{flex:1}
+  .footer{flex-direction:column;align-items:center;text-align:center;gap:7px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="bg-printer" aria-hidden="true">
-  <svg viewBox="0 0 1400 980" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="1120" cy="290" r="112"/>
-      <circle cx="1120" cy="290" r="76"/>
-      <circle cx="1120" cy="290" r="24"/>
-      <path d="M1120 178v36m112 76h-36m-76 112v-36m-112-76h36M1041 211l26 26m106 106-26-26m0-106-26 26m-106 106 26-26"/>
-      <path d="M1120 402c0 68-52 86-112 86h-104c-28 0-42 15-42 42"/>
-      <path d="M330 820V170h600v650M378 170V820M882 170V820M330 220h600M330 770h600"/>
-      <path d="M330 170l48-54h456l96 54M378 116h456"/>
-      <path d="M354 820h552M410 820v-28m440 28v-28"/>
-      <path d="M414 266h432M438 250h396v32H438z"/>
-      <path d="M630 250v-58h76v58"/>
-      <path d="M642 282h60v70h-60zM650 352h44l-9 34h-26l-9-34Z"/>
-      <path class="hot" d="M672 386v34m-14-2h28"/>
-      <path d="M462 688h336l-30 26H492l-30-26Z"/>
-      <path d="M495 680v-16h270v16M514 664v-13h232v13"/>
-      <path class="hot" d="M552 651v-30h154v30m-128-30v-20h102v20m-78-20v-18h54v18"/>
-      <path d="M492 714h276v26H492zM514 740v30m232-30v30"/>
-      <path d="M360 310h28v380h-28M872 310h28v380h-28"/>
-      <path d="M390 360h28m-28 24h28m-28 24h28m-28 24h28m-28 24h28"/>
-      <path d="M854 360h28m-28 24h28m-28 24h28m-28 24h28m-28 24h28"/>
-      <circle cx="392" cy="190" r="8"/><circle cx="868" cy="190" r="8"/>
-      <path d="M260 870h760M300 900h680"/>
-      <path class="hot" d="M502 870h276m-222 30h168"/>
-    </g>
-    <g fill="currentColor" opacity=".5">
-      <circle cx="330" cy="170" r="7"/><circle cx="930" cy="170" r="7"/>
-      <circle cx="330" cy="820" r="7"/><circle cx="930" cy="820" r="7"/>
-    </g>
-  </svg>
-</div>
-<main class="page">
-  <div class="topbar">
-    <button class="theme-toggle" id="toggle" type="button" aria-label="Alternar tema">
+<div class="site">
+  <header class="header">
+    <a class="brand" href="#" aria-label="Perform3 — início">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M12 53V11h40v42M12 17h40M19 11v42M45 11v42" stroke="#E9A34B" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M27 17h10v5l-3 4v7h-4v-7l-3-4v-5Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M24 41h16m-14 5h12m-14 5h16" stroke="#E9A34B" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span><span class="brand-name">PERFORM<span>3</span></span><span class="brand-caption">IMPRESSÃO 3D</span></span>
+    </a>
+    <div class="header-side">
+      <span class="header-note">Fabricação digital</span>
+      <button class="theme-toggle" id="toggle" type="button" aria-label="Alternar tema">
       <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
       <span id="themeLabel">Tema claro</span>
     </button>
-  </div>
-
-  <section class="card" aria-labelledby="title">
-    <div class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13 53V10h38v43M13 16h38M19 10v43M45 10v43" stroke="#D9E1E7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M27 16h10v5l-3 4v7h-4v-7l-3-4v-5Z" stroke="#F0A64B" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M32 32v5m-8 3h16m-18 5h20m-18 4h16" stroke="#F0A64B" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M21 53h22" stroke="#D9E1E7" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="32" cy="28" r="1.5" fill="#F0A64B"/>
-      </svg>
     </div>
-    <h1 id="title">PERFORM<span>3</span></h1>
-    <p class="tagline">Ideias que ganham forma.<br>Conheça nossos projetos e acompanhe o trabalho.</p>
+  </header>
 
-    <p class="section-heading">Acompanhe a Perform3</p>
-    <nav class="links" aria-label="Redes sociais">
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 class="hero-title" id="hero-title">PERFORM<span>3</span></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-text">Ideias que ganham forma. Conheça nosso trabalho e acompanhe de perto o universo da impressão 3D.</p>
+        <div class="hero-footnote">Impressão 3D · FDM</div>
+      </div>
+      <div class="machine" aria-hidden="true">
+        <svg viewBox="0 0 520 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="frame" x1="95" y1="40" x2="400" y2="390" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#e5edf1"/><stop offset="1" stop-color="#647782"/>
+            </linearGradient>
+            <linearGradient id="panel" x1="145" y1="75" x2="380" y2="360" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#26343d"/><stop offset="1" stop-color="#101820"/>
+            </linearGradient>
+            <linearGradient id="bed" x1="160" y1="295" x2="390" y2="345" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#e9a34b"/><stop offset="1" stop-color="#855321"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="264" cy="389" rx="178" ry="19" fill="#000" opacity=".24"/>
+          <!-- spool -->
+          <circle cx="391" cy="84" r="54" fill="#1b252d" stroke="url(#frame)" stroke-width="5"/>
+          <circle cx="391" cy="84" r="37" stroke="#e9a34b" stroke-opacity=".8" stroke-width="5"/>
+          <circle cx="391" cy="84" r="11" fill="#e9a34b"/>
+          <path d="M391 30v17m54 37h-17m-37 54v-17m-54-37h17m0-38 12 12m38 38 12 12m0-62-12 12m-38 38-12 12" stroke="#d4dde2" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>
+          <!-- main housing -->
+          <path d="M93 361V81l37-37h244l35 37v280H93Z" fill="url(#panel)" stroke="url(#frame)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M130 44h244l35 37H93l37-37Z" fill="#394a55" stroke="url(#frame)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M112 93h278v245H112V93Z" fill="#111a21" stroke="#758792" stroke-opacity=".65" stroke-width="3"/>
+          <!-- z rails -->
+          <path d="M133 109v211m236-211v211" stroke="#aab8c0" stroke-width="8" stroke-linecap="round"/>
+          <path d="M145 111v205m212-205v205" stroke="#465862" stroke-width="2"/>
+          <!-- gantry -->
+          <path d="M151 139h206v25H151z" fill="#71838e" stroke="#c2cdd3" stroke-width="2"/>
+          <path d="M176 131h154v8H176z" fill="#a8b7bf"/>
+          <!-- print head -->
+          <path d="M224 139h60v69h-60z" fill="#34444f" stroke="#b1c0c7" stroke-width="3"/>
+          <path d="M234 208h40l-8 25h-24l-8-25Z" fill="#e9a34b" stroke="#f6c078" stroke-width="2"/>
+          <path d="M254 233v18" stroke="#e9a34b" stroke-width="4" stroke-linecap="round"/>
+          <path d="M250 252h8" stroke="#f7c987" stroke-width="3" stroke-linecap="round"/>
+          <!-- printed object -->
+          <path d="M222 292v-27l16-18h34l17 18v27" stroke="#e9a34b" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M222 292h67m-61-8h55m-49-8h43m-36-8h29" stroke="#e9a34b" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/>
+          <!-- bed -->
+          <path d="M157 303h238l-24 28H181l-24-28Z" fill="url(#bed)" stroke="#f3c17d" stroke-width="2"/>
+          <path d="M181 331h190v12H181z" fill="#394a55" stroke="#83939d" stroke-width="2"/>
+          <!-- lower base -->
+          <path d="M93 343h316v18H93z" fill="#273640" stroke="#94a4ad" stroke-width="3"/>
+          <path d="M117 361h268v15H117z" fill="#172129" stroke="#71828d" stroke-width="2"/>
+          <!-- control display -->
+          <rect x="321" y="300" width="49" height="29" rx="5" fill="#101820" stroke="#8d9da6" stroke-width="2"/>
+          <rect x="328" y="307" width="35" height="15" rx="2" fill="#e9a34b" fill-opacity=".2"/>
+          <path d="M334 314h22" stroke="#e9a34b" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="379" cy="314" r="4" fill="#e9a34b"/>
+          <!-- filament line -->
+          <path d="M391 138c0 16-16 18-37 18h-22c-17 0-23 6-23 18" stroke="#e9a34b" stroke-width="2.5" stroke-dasharray="5 6"/>
+          <!-- technical highlights -->
+          <path d="M77 99h10m-10 12h10M420 99h10m-10 12h10" stroke="#e9a34b" stroke-width="2" stroke-linecap="round"/>
+          <path d="M110 385h283" stroke="#e9a34b" stroke-opacity=".65" stroke-width="2"/>
+        </svg>
+        <span class="machine-label">Tecnologia FDM</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="social-title">
+      <div class="section-head"><h2 class="section-title" id="social-title">Acompanhe a Perform3</h2><span class="section-line"></span></div>
+      <nav class="social-grid" aria-label="Redes sociais">
       <a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
         <span class="ico instagram" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg></span>
         <span class="copy"><span class="name">Instagram</span><span class="sub">Novidades, peças e bastidores</span></span><span class="arrow" aria-hidden="true">↗</span>
@@ -177,9 +259,10 @@ footer{margin-top:19px;color:var(--muted);text-align:center;font-size:10px;lette
         <span class="copy"><span class="name">YouTube</span><span class="sub">Vídeos e conteúdos</span></span><span class="arrow" aria-hidden="true">↗</span>
       </a>
     </nav>
+    </section>
 
-    <div class="contact-area">
-      <p class="section-heading">Entre em contato</p>
+    <section class="contact-panel" aria-label="Entre em contato">
+      <div class="contact-copy"><h2>Vamos tirar sua ideia do papel?</h2><p>Entre em contato e fale com a Perform3.</p></div>
       <div class="contacts">
         <a class="contact mail" href="mailto:SEU-EMAIL@EXEMPLO.COM">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm9 8.2L3.5 6.5v11.4h17V6.5L12 12.2Zm0-2.4L20.5 6h-17l8.5 3.8Z"/></svg>
@@ -190,10 +273,11 @@ footer{margin-top:19px;color:var(--muted);text-align:center;font-size:10px;lette
           WhatsApp
         </a>
       </div>
-    </div>
-  </section>
-  <footer>© <span id="year"></span> Perform3 · Impressão 3D</footer>
-</main>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© <span id="year"></span> Perform3 · Todos os direitos reservados</span><span>Impressão 3D</span></footer>
+</div>
 <script>
 const root=document.documentElement;
 const button=document.getElementById('toggle');
