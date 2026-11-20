@@ -1,16 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 132" role="img" aria-labelledby="title desc">
-<title id="title">Perform3</title><desc id="desc">Símbolo geométrico P em grafite, prata e laranja ao lado do nome Perform3.</desc>
-<defs>
-  <linearGradient id="silver" x1="15" y1="12" x2="120" y2="115" gradientUnits="userSpaceOnUse"><stop stop-color="#F4F6F7"/><stop offset=".55" stop-color="#AEB8BE"/><stop offset="1" stop-color="#65727B"/></linearGradient>
-  <linearGradient id="orange" x1="35" y1="18" x2="112" y2="94" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC36F"/><stop offset=".55" stop-color="#F29A2E"/><stop offset="1" stop-color="#C66A16"/></linearGradient>
-</defs>
-<g transform="translate(5 5)">
-  <path d="M18 112V16h60c25 0 41 14 41 36S103 88 78 88H55" fill="none" stroke="url(#silver)" stroke-width="15" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M18 16h60c18 0 31 8 37 22" fill="none" stroke="url(#orange)" stroke-width="15" stroke-linecap="square"/>
-  <path d="M55 88v24" fill="none" stroke="url(#orange)" stroke-width="15" stroke-linecap="square"/>
-  <path d="M28 28h48c13 0 20 8 20 19s-7 19-20 19H55" fill="none" stroke="#19232B" stroke-width="7" stroke-linejoin="miter"/>
-  <path d="M18 112h48" stroke="#F29A2E" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 108" role="img" aria-labelledby="title desc">
+<title id="title">perform3</title>
+<desc id="desc">Marca perform3 com um P de traço contínuo e detalhe em laranja.</desc>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 87V27c0-8 6-14 15-14h20c20 0 33 12 33 30S77 73 57 73H31" stroke="#F1F0EC" stroke-width="11"/>
+  <path d="M32 73h25c11 0 20-4 26-11" stroke="#E79A47" stroke-width="11"/>
 </g>
-<text x="145" y="87" fill="#F1F4F5" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="800" letter-spacing="1.6">PERFORM<tspan fill="#F29A2E">3</tspan></text>
-<path d="M148 105h280" stroke="#F29A2E" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+<text x="122" y="75" fill="#F1F0EC" font-family="Trebuchet MS, Segoe UI, Arial, sans-serif" font-size="57" font-weight="700" letter-spacing="-2.1">perform<tspan fill="#E79A47" dx="2">3</tspan></text>
 </svg>
