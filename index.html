@@ -12,7 +12,8 @@
 *{box-sizing:border-box}
 html{min-height:100%;background:#0b1015}
 body{position:relative;isolation:isolate;min-height:100vh;margin:0;padding:28px 18px 22px;display:grid;place-items:center;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);transition:color .25s}
-.background-photo{position:fixed;inset:-12px;z-index:-1;pointer-events:none;background-image:url("assets/perform3-a1-background.webp");background-size:cover;background-position:58% center;background-repeat:no-repeat;filter:blur(8px);transform:scale(1.035)}
+.background-photo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:#0c0f11;background-image:url("https://images.pexels.com/photos/40948538/pexels-photo-40948538.jpeg?auto=compress&cs=tinysrgb&w=1800");background-size:auto 112%;background-position:right center;background-repeat:no-repeat;filter:blur(3px);transform:scale(1.01)}
+.background-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c0f11 0%,rgba(12,15,17,.92) 22%,rgba(12,15,17,.42) 68%,rgba(12,15,17,.16) 100%)}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 35%,transparent 0%,rgba(0,0,0,.22) 75%);z-index:0}
 .page{position:relative;z-index:1;width:min(100%,540px);margin:auto}
 .card{position:relative;overflow:hidden;padding:31px 32px 27px;text-align:center;border:1px solid var(--line);border-radius:20px;background:var(--panel);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow)}
