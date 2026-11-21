@@ -21,7 +21,10 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .theme-toggle svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .card{position:relative;overflow:hidden;padding:34px 34px 27px;text-align:center;border:1px solid var(--line);border-radius:24px;background:var(--panel);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--shadow)}
 .card:before{content:"";position:absolute;top:0;left:34px;width:46px;height:3px;background:var(--accent);border-radius:0 0 3px 3px}
-.logo{display:block;width:min(100%,320px);height:auto;margin:4px auto 13px;filter:none}
+.logo{display:block;width:min(100%,285px);height:auto;margin:6px auto 17px;filter:none}
+.logo-light{display:none}
+[data-theme="light"] .logo-dark{display:none}
+[data-theme="light"] .logo-light{display:block}
 .tagline{max-width:350px;margin:0 auto 27px;color:var(--muted);font-size:14px;line-height:1.65}
 .section-heading{display:flex;align-items:center;gap:12px;margin:0 0 12px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;text-align:left}
 .section-heading:after{content:"";height:1px;flex:1;background:var(--line)}
@@ -40,7 +43,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .contact svg{width:16px;height:16px;fill:currentColor}.contact.mail svg{color:var(--accent)}.contact.whatsapp svg{color:#25c96a}
 footer{margin-top:17px;color:#e5eaedb5;text-align:center;font-size:10px;letter-spacing:.45px;text-shadow:0 1px 5px #000}
 [data-theme="light"] footer{color:#fff}
-@media(max-width:440px){body{padding:16px 12px;background-position:center;background-attachment:scroll}.card{padding:29px 19px 22px;border-radius:20px}.logo{width:min(100%,285px)}.tagline{font-size:13px;margin-bottom:23px}.link{min-height:62px}.topbar{margin-bottom:9px}}
+@media(max-width:440px){body{padding:16px 12px;background-position:center;background-attachment:scroll}.card{padding:29px 19px 22px;border-radius:20px}.logo{width:min(100%,265px)}.tagline{font-size:13px;margin-bottom:23px}.link{min-height:62px}.topbar{margin-bottom:9px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
 </style>
 </head>
@@ -53,7 +56,7 @@ footer{margin-top:17px;color:#e5eaedb5;text-align:center;font-size:10px;letter-s
     </button>
   </div>
   <section class="card" aria-label="Perform3">
-    <img class="logo" src="assets/perform3-logo.svg" alt="Perform3">
+    <img class="logo logo-dark" src="assets/perform3-logo.svg" alt="Perform3"><img class="logo logo-light" src="assets/perform3-logo-light.svg" alt="Perform3">
     <p class="tagline">Peças úteis e criativas para fazer parte da sua rotina.</p>
     <p class="section-heading">Siga a Perform3</p>
     <nav class="social-grid" aria-label="Redes sociais">

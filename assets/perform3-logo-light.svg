@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" role="img" aria-labelledby="title">
+<title id="title">perform3</title>
+<g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M18 82V17H51c20 0 31 10 31 26S71 69 51 69H18" stroke="#20282D" stroke-width="10"/>
+  <path d="M42 39h24" stroke="#E49A45" stroke-width="7"/>
+  <path d="M54 39v11l-6 7" stroke="#E49A45" stroke-width="5" stroke-linecap="round"/>
+  <path d="M46 61h16" stroke="#E49A45" stroke-width="4" stroke-linecap="round"/>
+</g>
+<text x="112" y="67" fill="#20282D" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="52" font-weight="650" letter-spacing="-2.4">perform<tspan fill="#E49A45" font-weight="750">3</tspan></text>
+</svg>
