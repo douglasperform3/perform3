@@ -12,7 +12,8 @@
 [data-theme="light"]{color-scheme:light;--panel:rgba(247,249,250,.87);--panel-soft:rgba(255,255,255,.78);--text:#17232a;--muted:#5e6c75;--line:#1826302a;--accent:#a85d10;--accent-soft:#d9812023;--shadow:0 22px 75px #0b1b281c}
 *{box-sizing:border-box}
 html{min-height:100%;background:#0b1015}
-body{position:relative;min-height:100vh;margin:0;padding:28px 18px 22px;display:grid;place-items:center;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background-image:linear-gradient(110deg,rgba(7,11,15,.70),rgba(7,11,15,.60) 52%,rgba(7,11,15,.72)),url("assets/perform3-products.webp");background-size:cover;background-position:center;background-attachment:fixed;transition:color .25s}
+body{position:relative;isolation:isolate;min-height:100vh;margin:0;padding:28px 18px 22px;display:grid;place-items:center;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);transition:color .25s}
+.background-photo{position:fixed;inset:-12px;z-index:-1;pointer-events:none;background-image:url("assets/perform3-products.webp");background-size:cover;background-position:center;background-repeat:no-repeat;filter:blur(8px);transform:scale(1.035)}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 35%,transparent 0%,rgba(0,0,0,.22) 75%);z-index:0}
 .page{position:relative;z-index:1;width:min(100%,540px);margin:auto}
 .topbar{display:flex;justify-content:flex-end;margin-bottom:12px}
@@ -48,6 +49,7 @@ footer{margin-top:17px;color:#e5eaedb5;text-align:center;font-size:10px;letter-s
 </style>
 </head>
 <body>
+<div class="background-photo" aria-hidden="true"></div>
 <main class="page">
   <div class="topbar">
     <button class="theme-toggle" id="toggle" type="button" aria-label="Alternar tema">
